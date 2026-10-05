@@ -54,8 +54,8 @@ loops.everyInterval(1000, function () {
     tiempo += 1
 })
 basic.forever(function () {
-    led.plotBrightness(Obj_x, Obj_y, 37)
     if (tiempo < 60) {
+        led.plotBrightness(Obj_x, Obj_y, 37)
         led.unplot(ax, ay)
         led.plot(x, y)
         if (x == Obj_x && y == Obj_y) {
@@ -69,14 +69,11 @@ basic.forever(function () {
                 Obj_x = randint(0, 4)
             }
             led.plotBrightness(Obj_x, Obj_y, 37)
-            if (x == Obj_x && y == Obj_y) {
-                Obj_x = randint(0, 4)
-                Obj_y = randint(0, 4)
-            }
         }
     } else {
         music.play(music.tonePlayable(175, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
         led.unplot(Obj_x, Obj_y)
+        led.unplot(ax, ay)
         led.unplot(x, y)
         basic.showNumber(puntos)
     }
