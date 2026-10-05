@@ -64,6 +64,10 @@ basic.forever(function () {
             puntos += 1
             Obj_x = randint(0, 4)
             Obj_y = randint(0, 4)
+            while (x == Obj_x && y == Obj_y) {
+                Obj_y = randint(0, 4)
+                Obj_x = randint(0, 4)
+            }
             led.plotBrightness(Obj_x, Obj_y, 37)
             if (x == Obj_x && y == Obj_y) {
                 Obj_x = randint(0, 4)
